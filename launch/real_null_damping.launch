@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <include file="$(find ur10_e_moveit_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+    <arg name="limited" value="false"/>
+  </include>
+
+  <!-- Load the admittance parameters-->
+  <arg name="ADMITTANCE_PARAMS_FILE" default="$(find null_damping)/config/admittance_params_real.yaml" />
+  <rosparam file="$(arg ADMITTANCE_PARAMS_FILE)" command="load"/>
+
+</launch>

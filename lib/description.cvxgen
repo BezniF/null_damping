@@ -1,0 +1,37 @@
+# Produced by CVXGEN, 2021-01-15 12:59:23 -0500.
+# CVXGEN is Copyright (C) 2006-2017 Jacob Mattingley, jem@cvxgen.com.
+# The code in this file is Copyright (C) 2006-2017 Jacob Mattingley.
+# CVXGEN, or solvers produced by CVXGEN, cannot be used for commercial
+# applications without prior written permission from Jacob Mattingley.
+
+# Filename: description.cvxgen.
+# Description: A description of the CVXGEN problem.
+
+dimensions
+  n = 3
+
+end
+
+parameters
+  dotx_2 (n)
+  Fd (n)
+  tau
+  Td
+  T0
+  varepsilon
+
+end
+
+variables
+  dotx_2 (n)
+
+end
+
+minimize
+  quad(dotx_2)
+
+subject to
+
+  tau * Fd' * dotx_2 >= Td - T0
+
+end
